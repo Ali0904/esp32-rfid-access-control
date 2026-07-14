@@ -1,11 +1,20 @@
-# IoT Lab 6 - SPI-Based Peripheral Communication and RFID Identification
+<p align="center">
+  <img src="images/university-logo.jpeg" alt="Namal University" width="150">
+</p>
 
-**University:** Namal University, Mianwali  
-**Department:** Electrical Engineering  
-**Course:** EE455L - Internet of Things (Lab)  
-**Student:** Ali Haider (NUM-BSEE-2022-13)  
-**Instructor:** Engr. Junaid Ashraf  
-**Date:** 13th April, 2026  
+<h1 align="center">IoT Lab 6 - SPI-Based Peripheral Communication and RFID Identification</h1>
+
+<p align="center">
+  <strong>Namal University, Mianwali</strong><br>
+  Department of Electrical Engineering<br>
+  EE455L - Internet of Things (Lab)
+</p>
+
+| | |
+|---|---|
+| **Student** | Ali Haider (NUM-BSEE-2022-13) |
+| **Instructor** | Engr. Junaid Ashraf |
+| **Date** | 13th April, 2026 |
 
 ---
 
@@ -58,6 +67,12 @@
 | Buzzer    | GPIO 10      |
 | LED       | GPIO 2       |
 
+### RFID Module Internal Circuit
+
+<p align="center">
+  <img src="images/rfid-internal-circuit.jpeg" alt="RFID Internal Circuit" width="500">
+</p>
+
 ---
 
 ## Tasks
@@ -68,16 +83,21 @@ Basic RFID UID reader that detects tags and displays their UID in hexadecimal fo
 
 **Folder:** `Task1_RFID_Reader/`
 
-**Expected Output:**
+**Libraries Required:**
+- `SPI.h` (built-in)
+- `MFRC522.h` (install via Library Manager)
+
+#### Output
+
+<p align="center">
+  <img src="images/task1-output.jpeg" alt="Task 1 Output" width="500">
+</p>
+
 ```
 RFID UID Reader
 Scan your card...
 UID: A1 B2 C3 D4
 ```
-
-**Libraries Required:**
-- `SPI.h` (built-in)
-- `MFRC522.h` (install via Library Manager)
 
 ---
 
@@ -91,7 +111,20 @@ Advanced RFID authentication system with:
 
 **Folder:** `Task2_Secure_Identification/`
 
-**Expected Output (Authorized):**
+**Libraries Required:**
+- `SPI.h` (built-in)
+- `MFRC522.h`
+- `Wire.h` (built-in)
+- `Adafruit_GFX.h`
+- `Adafruit_SSD1306.h`
+
+#### Output
+
+<p align="center">
+  <img src="images/task2-output.jpeg" alt="Task 2 Output" width="500">
+</p>
+
+**Authorized:**
 ```
 UID: 67 9E 37 25
 Roll: NUM-BSEE-2022-13
@@ -99,18 +132,11 @@ Name: Malik Uzair
 Access Granted
 ```
 
-**Expected Output (Unauthorized):**
+**Unauthorized:**
 ```
 UID: AA BB CC DD
 Access Denied
 ```
-
-**Libraries Required:**
-- `SPI.h` (built-in)
-- `MFRC522.h`
-- `Wire.h` (built-in)
-- `Adafruit_GFX.h`
-- `Adafruit_SSD1306.h`
 
 ---
 
