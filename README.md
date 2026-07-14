@@ -55,11 +55,6 @@
 | Buzzer    | GPIO 10      |
 | LED       | GPIO 2       |
 
-### RFID Module Internal Circuit
-
-<p align="center">
-  <img src="images/rfid-internal-circuit.jpeg" alt="RFID Internal Circuit" width="500">
-</p>
 
 ---
 
