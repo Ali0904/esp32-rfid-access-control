@@ -1,30 +1,18 @@
-<p align="center">
-  <img src="images/university-logo.jpeg" alt="Namal University" width="150">
-</p>
-
-<h1 align="center">IoT Lab 6 - SPI-Based Peripheral Communication and RFID Identification</h1>
+<h1 align="center">ESP32 RFID Access Control System</h1>
 
 <p align="center">
-  <strong>Namal University, Mianwali</strong><br>
-  Department of Electrical Engineering<br>
-  EE455L - Internet of Things (Lab)
+  RFID-based identification and secure access control using ESP32-S3 and MFRC522 module.
 </p>
-
-| | |
-|---|---|
-| **Student** | Ali Haider (NUM-BSEE-2022-13) |
-| **Instructor** | Engr. Junaid Ashraf |
-| **Date** | 13th April, 2026 |
 
 ---
 
-## Learning Objectives
+## Features
 
-- Configure SPI protocol on ESP32
-- Interface RFID (MFRC522) module with ESP32
-- Read RFID tag UID and process identification
-- Implement a basic secure identification mechanism
-- Display output on Serial Monitor / OLED
+- SPI-based communication between ESP32 and MFRC522 RFID module
+- Real-time RFID tag detection and UID reading
+- Authorized user database with access control logic
+- OLED display for status and user info
+- Buzzer and LED feedback for granted/denied access
 
 ---
 
@@ -75,11 +63,11 @@
 
 ---
 
-## Tasks
+## Modules
 
-### Task 1 - SPI Configuration and RFID Interfacing
+### Basic RFID Reader
 
-Basic RFID UID reader that detects tags and displays their UID in hexadecimal format on the Serial Monitor.
+Simple RFID UID reader that detects tags and displays their UID in hexadecimal format on the Serial Monitor.
 
 **Folder:** `Task1_RFID_Reader/`
 
@@ -90,7 +78,7 @@ Basic RFID UID reader that detects tags and displays their UID in hexadecimal fo
 #### Output
 
 <p align="center">
-  <img src="images/task1-output.jpeg" alt="Task 1 Output" width="500">
+  <img src="images/task1-output.jpeg" alt="RFID Reader Output" width="500">
 </p>
 
 ```
@@ -101,10 +89,10 @@ UID: A1 B2 C3 D4
 
 ---
 
-### Task 2 - Secure Identification and System Verification
+### Secure Access Control
 
 Advanced RFID authentication system with:
-- Authorized student database (UID -> Roll No + Name)
+- Authorized user database (UID -> Name)
 - OLED display for real-time output
 - Buzzer feedback (short beep for granted, long beep for denied)
 - LED indicator for access status
@@ -121,13 +109,12 @@ Advanced RFID authentication system with:
 #### Output
 
 <p align="center">
-  <img src="images/task2-output.jpeg" alt="Task 2 Output" width="500">
+  <img src="images/task2-output.jpeg" alt="Access Control Output" width="500">
 </p>
 
 **Authorized:**
 ```
 UID: 67 9E 37 25
-Roll: NUM-BSEE-2022-13
 Name: Malik Uzair
 Access Granted
 ```
@@ -146,7 +133,7 @@ Access Denied
 2. Install required libraries via **Sketch > Include Library > Manage Libraries**
 3. Select board: **ESP32-S3 Dev Module**
 4. Select the correct COM port
-5. Upload the `.ino` file from the respective task folder
+5. Upload the `.ino` file from the respective folder
 
 ---
 

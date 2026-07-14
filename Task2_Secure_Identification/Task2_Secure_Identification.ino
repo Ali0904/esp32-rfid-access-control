@@ -30,26 +30,25 @@
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 MFRC522 mfrc522(SS_PIN, RST_PIN);
 
-// ================= STUDENT DATABASE =================
-struct Student {
+// ================= AUTHORIZED USER DATABASE =================
+struct User {
     String uid;
-    String roll;
     String name;
 };
 
-Student students[] = {
-    {"67 9E 37 25", "NUM-BSEE-2022-13", "Malik Uzair"},
-    {"47 8E C0 2E", "NUM-BSEE-2022-25", "Badar Hafeez"}
+User authorizedUsers[] = {
+    {"67 9E 37 25", "Malik Uzair"},
+    {"47 8E C0 2E", "Badar Hafeez"}
 };
 
-// ================= GET STUDENT =================
-Student getStudent(String uid) {
-    for (int i = 0; i < sizeof(students) / sizeof(students[0]); i++) {
-        if (uid.equalsIgnoreCase(students[i].uid)) {
-            return students[i];
+// ================= GET USER =================
+User getUser(String uid) {
+    for (int i = 0; i < sizeof(authorizedUsers) / sizeof(authorizedUsers[0]); i++) {
+        if (uid.equalsIgnoreCase(authorizedUsers[i].uid)) {
+            return authorizedUsers[i];
         }
     }
-    return {"", "UNKNOWN", "UNKNOWN"};
+    return {"", "UNKNOWN"};
 }
 
 // ================= BUZZER =================
@@ -60,7 +59,7 @@ void beep(int duration) {
 }
 
 // ================= OLED DISPLAY =================
-void showStudent(Student s, String uid) {
+void showUser(User u, String uid) {
     display.clearDisplay();
     display.setTextSize(1);
     display.setCursor(0, 0);
@@ -69,11 +68,8 @@ void showStudent(Student s, String uid) {
     display.println("UID:");
     display.println(uid);
     display.setCursor(0, 28);
-    display.println("Roll:");
-    display.println(s.roll);
-    display.setCursor(0, 44);
     display.println("Name:");
-    display.println(s.name);
+    display.println(u.name);
     display.display();
 }
 
@@ -129,15 +125,14 @@ void loop() {
 
     Serial.println("UID: " + uidStr);
 
-    Student s = getStudent(uidStr);
+    User u = getUser(uidStr);
 
-    if (s.roll != "UNKNOWN") {
-        Serial.println("Roll: " + s.roll);
-        Serial.println("Name: " + s.name);
+    if (u.name != "UNKNOWN") {
+        Serial.println("Name: " + u.name);
         Serial.println("Access Granted");
         digitalWrite(LED_BUILTIN, HIGH);
         beep(200);
-        showStudent(s, uidStr);
+        showUser(u, uidStr);
     } else {
         Serial.println("Access Denied");
         digitalWrite(LED_BUILTIN, LOW);
